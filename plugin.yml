@@ -1,0 +1,6 @@
+name: Chronos-eShop
+main: me.ImFascinated.eShop.Core
+version: 0.1
+depends: [Vault]
+commands:
+  eShop:
