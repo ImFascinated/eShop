@@ -18,13 +18,23 @@ eShop:
     Name: "&c&leShop GUI"
     Size: 54 # Always add one onto what it is -- Java iz bad
 
-  catergories:
+  categories:
     Category1:
+      ItemMaterial: DIAMOND_CHESTPLATE
       Name: "&c&lArmor Category"
       Lore:
         - "&8&m----------------"
         - "&c&lArmor Category"
         - "&8&m----------------"
+      GUISlot: 1
+    Category2:
+      ItemMaterial: DIAMOND_CHESTPLATE
+      Name: "&c&lSword Category"
+      Lore:
+        - "&8&m----------------"
+        - "&c&lArmor Category"
+        - "&8&m----------------"
+      GUISlot: 2
 
   items:
      Enchant1:
@@ -33,19 +43,13 @@ eShop:
         - "&8&m----------------"
         - "&c&lPrice: &7$100"
         - "&8&m----------------"
-      ItemMaterial: IRON_SWORD
-      Enchant: 'DAMAGE_ALL'
+      ItemMaterial: DIAMOND_CHESTPLATE
+      Enchant: 'DURABILITY'
       Level: 1 # How many enchant levels to add
       GUISlot: 11 # The GUI starts at 0
       CategoryType: 'Category1'
-
-    Catagory2:
-      Name: "&c&lSwords Catagory"
-      Lore:
-        - "&8&m----------------"
-        - "&c&lSwords Catagory"
-        - "&8&m----------------"
-     Enchant1:
+      
+     Enchant2:
       Name: "&7Test Enchant"
       Lore:
         - "&8&m----------------"
@@ -55,3 +59,4 @@ eShop:
       Enchant: 'DAMAGE_ALL'
       Level: 1 # How many enchant levels to add
       GUISlot: 11 # The GUI starts at 0
+      CategoryType: 'Category2'

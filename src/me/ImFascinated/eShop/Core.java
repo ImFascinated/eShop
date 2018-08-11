@@ -50,6 +50,11 @@ public class Core extends JavaPlugin {
         
         	CoreUtils.loadLores(keys, Core.config.getConfiguration().getStringList("eShop.items." + keys + ".Lore" ));
         }
+        
+        for (String keys : Core.config.getConfiguration().getConfigurationSection("eShop.categories").getKeys(false)) {
+            
+        	CoreUtils.loadLores(keys, Core.config.getConfiguration().getStringList("eShop.categories." + keys + ".Lore" ));
+        }
     }
     
 	public void setupYMLFiles() {

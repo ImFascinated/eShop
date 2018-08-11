@@ -6,6 +6,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import me.ImFascinated.eShop.Core;
+import me.ImFascinated.eShop.GUIS.eShopGUI;
 import me.ImFascinated.eShop.Utils.CoreUtils;
 
 
@@ -23,15 +24,46 @@ public class eShopEvent implements Listener {
 		
 		if (e.getClickedInventory().getName().equalsIgnoreCase(CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.eShopGUI.Name")))) {
 		
-		e.setCancelled(true);
+		for (String keys : Core.config.getConfiguration().getConfigurationSection("eShop.categories").getKeys(false)) {
+
+			if (e.getCurrentItem().getItemMeta().getDisplayName().equals(CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.categories." + keys + ".Name")))) {
+				
+				
+					
+					
+							
+						eShopGUI.betterMenu(p, keys);
+							
+						e.setCancelled(true);
+						
+					
+					
+				
+				
+				
+			}
+			
+		}
 		
 		for (String keys : Core.config.getConfiguration().getConfigurationSection("eShop.items").getKeys(false)) {
-			if(p.getInventory().getItemInHand() == null) {
-				p.sendMessage("test");
-			} else if (e.getCurrentItem().getItemMeta().getDisplayName().equals(CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")))) {
-				CoreUtils.shopEnchant(p, Core.config.getConfiguration().getString("eShop.items." + keys +  ".Enchant"), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Level"), CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Price"));	
-				}
-			}
-		}
+			if (e.getCurrentItem().getItemMeta().getDisplayName().equals(CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")))) {
+
+					CoreUtils.shopEnchant(p, Core.config.getConfiguration().getString("eShop.items." + keys +  ".Enchant"), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Level"), CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Price"));	
+					e.setCancelled(true);
+				
+				
+				
+				
+			
+			
+		
+		
+		
 	}
+		}
+		
+		}
+	
+	}
+
 }

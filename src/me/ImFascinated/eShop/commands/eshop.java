@@ -13,7 +13,7 @@ public class eshop implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		Player p = (Player) sender;
-		eShopGUI.betterMenu(p);
+		eShopGUI.categories(p);
 		return true;
 	}	
 	
