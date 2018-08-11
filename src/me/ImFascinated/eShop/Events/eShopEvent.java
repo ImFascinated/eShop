@@ -27,40 +27,23 @@ public class eShopEvent implements Listener {
 		for (String keys : Core.config.getConfiguration().getConfigurationSection("eShop.categories").getKeys(false)) {
 
 			if (e.getCurrentItem().getItemMeta().getDisplayName().equals(CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.categories." + keys + ".Name")))) {
-				
-				
-					
-					
-							
-						eShopGUI.betterMenu(p, keys);
-							
+											
+						eShopGUI.betterMenu(p, keys);						
 						e.setCancelled(true);
-						
-					
-					
-				
-				
-				
+
 			}
 			
 		}
 		
 		for (String keys : Core.config.getConfiguration().getConfigurationSection("eShop.items").getKeys(false)) {
-			if (e.getCurrentItem().getItemMeta().getDisplayName().equals(CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")))) {
+			if(p.getInventory().getItemInHand() == null ) {
+				if (e.getCurrentItem().getItemMeta().getDisplayName().equals(CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")))) {
 
 					CoreUtils.shopEnchant(p, Core.config.getConfiguration().getString("eShop.items." + keys +  ".Enchant"), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Level"), CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Price"));	
 					e.setCancelled(true);
-				
-				
-				
-				
-			
-			
-		
-		
-		
-	}
-		}
+					}
+				}
+			}
 		
 		}
 	
