@@ -45,9 +45,8 @@ public class eShopEvent implements Listener {
 					e.setCancelled(true);
 	
 					}
-				
+				}
 			}
-		}
 		}
 	}
 }
