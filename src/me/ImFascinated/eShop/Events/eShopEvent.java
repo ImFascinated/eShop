@@ -31,16 +31,10 @@ public class eShopEvent implements Listener {
 											
 						eShopGUI.betterMenu(p, keys);						
 						e.setCancelled(true);
-<<<<<<< HEAD
+
 						
 						return;
-					
-				
-				
-				
-=======
 
->>>>>>> b6e008267483acff5ef906155ec48217a4fee5a8
 			}
 			
 		}
@@ -53,7 +47,6 @@ public class eShopEvent implements Listener {
 
 					CoreUtils.shopEnchant(p, Core.config.getConfiguration().getString("eShop.items." + keys +  ".Enchant"), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Level"), CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Price"));	
 					e.setCancelled(true);
-<<<<<<< HEAD
 					return;
 				
 				
@@ -66,13 +59,13 @@ public class eShopEvent implements Listener {
 		
 	}
 		}
-=======
+
 					}
 				}
-			}
->>>>>>> b6e008267483acff5ef906155ec48217a4fee5a8
+			
+
 		
-		}
+		
 	
 	}
 
