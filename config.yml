@@ -26,7 +26,7 @@ eShop:
         - "&8&m----------------"
         - "&c&lArmor Category"
         - "&8&m----------------"
-      GUISlot: 1
+      GUISlot: 11
     Category2:
       ItemMaterial: DIAMOND_CHESTPLATE
       Name: "&c&lSword Category"
@@ -34,7 +34,7 @@ eShop:
         - "&8&m----------------"
         - "&c&lArmor Category"
         - "&8&m----------------"
-      GUISlot: 2
+      GUISlot: 15
 
   items:
      Enchant1:
@@ -45,8 +45,9 @@ eShop:
         - "&8&m----------------"
       ItemMaterial: DIAMOND_CHESTPLATE
       Enchant: 'DURABILITY'
+      Price: 100
       Level: 1 # How many enchant levels to add
-      GUISlot: 11 # The GUI starts at 0
+      GUISlot: 13 # The GUI starts at 0
       CategoryType: 'Category1'
       
      Enchant2:
@@ -57,6 +58,7 @@ eShop:
         - "&8&m----------------"
       ItemMaterial: IRON_SWORD
       Enchant: 'DAMAGE_ALL'
+      Price: 100
       Level: 1 # How many enchant levels to add
-      GUISlot: 11 # The GUI starts at 0
+      GUISlot: 13 # The GUI starts at 0
       CategoryType: 'Category2'
