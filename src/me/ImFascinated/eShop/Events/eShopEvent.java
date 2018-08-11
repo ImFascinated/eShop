@@ -31,23 +31,23 @@ public class eShopEvent implements Listener {
 											
 						eShopGUI.betterMenu(p, keys);						
 						e.setCancelled(true);
-						return;
 
 			}
 		}
 		
-		if (p.getItemInHand() == null || p.getItemInHand().getType() == Material.AIR) return;
+		if (p.getItemInHand() != null && p.getItemInHand().getType() != Material.AIR) {
 		
 		for (String keys : Core.config.getConfiguration().getConfigurationSection("eShop.items").getKeys(false)) {
-			if(p.getInventory().getItemInHand() == null ) {
+			
 				if (e.getCurrentItem().getItemMeta().getDisplayName().equals(CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")))) {
 
 					CoreUtils.shopEnchant(p, Core.config.getConfiguration().getString("eShop.items." + keys +  ".Enchant"), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Level"), CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Price"));	
 					e.setCancelled(true);
 	
 					}
-				}
+				
 			}
+		}
 		}
 	}
 }
