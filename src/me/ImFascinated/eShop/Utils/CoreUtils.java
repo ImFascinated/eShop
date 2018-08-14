@@ -25,17 +25,10 @@ public class CoreUtils {
 		Core.config.reloadConfig();
 	}
 	
-	public static void shopEnchant(Player p, String e, Integer eLVL, String boughtItemName, Integer price) {
-		Economy eco = Core.getEconomy();
-		if (eco.getBalance(p) < price) {
-			p.sendMessage("§cInsufficient balance. You have $" + eco.getBalance(p));
-		} else {
-			eco.withdrawPlayer(p, price);
-			p.sendMessage("§aPurchased " + boughtItemName + " for $" + price);
-			p.getOpenInventory().close();
+	public static void shopEnchant(Player p, String e, Integer eLVL) {
 			ItemStack item = p.getItemInHand();
 			item.addUnsafeEnchantment(Enchantment.getByName(e), eLVL);
-		}
+		
 	}
 	
     public static ItemStack createItem(Material m, String itemName, List<String> loreDir) {

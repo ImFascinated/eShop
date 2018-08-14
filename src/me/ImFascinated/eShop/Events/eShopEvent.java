@@ -9,6 +9,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import me.ImFascinated.eShop.Core;
 import me.ImFascinated.eShop.GUIS.eShopGUI;
 import me.ImFascinated.eShop.Utils.CoreUtils;
+import net.milkbowl.vault.economy.Economy;
 
 
 public class eShopEvent implements Listener {
@@ -36,14 +37,23 @@ public class eShopEvent implements Listener {
 		}
 		
 		if (p.getItemInHand() != null && p.getItemInHand().getType() != Material.AIR) {
-		
+			
+			e.setCancelled(true);
 		for (String keys : Core.config.getConfiguration().getConfigurationSection("eShop.items").getKeys(false)) {
 			
 				if (e.getCurrentItem().getItemMeta().getDisplayName().equals(CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")))) {
-
-					CoreUtils.shopEnchant(p, Core.config.getConfiguration().getString("eShop.items." + keys +  ".Enchant"), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Level"), CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name")), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Price"));	
-					e.setCancelled(true);
-	
+					int price = Core.config.getConfiguration().getInt("eShop.items." + keys + ".Price");
+					String boughtItemName = CoreUtils.CCFormat(Core.config.getConfiguration().getString("eShop.items." + keys + ".Name"));
+					
+					Economy eco = Core.getEconomy();
+					if (eco.getBalance(p) < price) {
+						p.sendMessage("§cInsufficient balance. You have $" + eco.getBalance(p));
+					} else {
+						eco.withdrawPlayer(p, price);
+						p.sendMessage("§aPurchased " + boughtItemName + " for $" + price);
+						p.getOpenInventory().close();
+						CoreUtils.shopEnchant(p, Core.config.getConfiguration().getString("eShop.items." + keys +  ".Enchant"), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Level"));
+					}		
 					}
 				}
 			}
