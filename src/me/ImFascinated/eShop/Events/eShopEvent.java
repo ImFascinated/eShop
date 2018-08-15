@@ -53,7 +53,7 @@ public class eShopEvent implements Listener {
 						p.sendMessage("§aPurchased " + boughtItemName + " for $" + price);
 						p.getOpenInventory().close();
 						CoreUtils.shopEnchant(p, Core.config.getConfiguration().getString("eShop.items." + keys +  ".Enchant"), Core.config.getConfiguration().getInt("eShop.items." + keys + ".Level"));
-					}		
+						}		
 					}
 				}
 			}

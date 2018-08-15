@@ -13,6 +13,9 @@
 # Visit: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/enchantments/Enchantment.html #
 #######################################################################
 
+Messages:
+  Not_Holding_A_Item: "&cYou''re not holding an item."
+
 eShop:
   eShopGUI:
     Name: "&c&leShop GUI"
